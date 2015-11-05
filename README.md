@@ -12,3 +12,19 @@ This is a base project that can be used to bootstrap new applications.
 ☐ System Discovery
 ☐ HTTP Server
 ☐ WebSockets
+
+# Tests
+
+## To Get Growl Test Notifications Working
+
+### MacOS X Dev Setup
+
+```bash
+$ sudo gem install terminal-notifier
+```
+
+### Ubuntu Dev Setup
+
+```bash
+$ sudo apt-get install libnotify-bin
+```

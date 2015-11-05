@@ -1,12 +1,12 @@
-FROM ubuntu:precise
+FROM node:5.0
 
-apt-get update && apt-get -y install node
+ADD . /app
+VOLUME /data /tmp/app-data
 
-ADD /dist /app
-VOLUME /data
+EXPOSE 3000
 
 WORKDIR /app
 
 ENV NODE_ENV=production
 
-CMD ["node app.js"]
+CMD ["npm", "run", "start:production"]
