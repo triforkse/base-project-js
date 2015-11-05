@@ -10,5 +10,10 @@
     "test": "mocha"
   },
   "author": "Thomas Anagrius <thb@trifork.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "passport": "^0.3.0",
+    "passport-http": "^0.3.0"
+  }
 }
