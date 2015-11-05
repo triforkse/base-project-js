@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 var MyComponent = React.createClass({
   render: function() {
-    return <div>Hello World</div>;
+    return <div>Hello World!</div>;
   }
 });
 

@@ -13,7 +13,8 @@
     "test": "mocha --compilers js:babel-core/register -c --require ./test/setup.js --recursive",
     "test:watch": "npm test -- --watch --growl",
     "start:production": "node build/app.js",
-    "start:dev": "nodemon --exec babel-node src/app.js",
+    "start:dev": "nodemon --exec babel-node src/server/app.js",
+    "start:devHot": "node devServer.js",
     "start": "concurrent 'npm run start:dev' 'npm run test:watch'",
     "lint": "eslint src"
   },

@@ -5,10 +5,7 @@ var path = require("path");
 
 module.exports = {
   entry: "./src/client/app.jsx",
-  externals: {
-    'react': 'react',
-    'react-dom': 'react-dom'
-  },
+  
   module: {
     loaders: [
       {
@@ -21,7 +18,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'client.js'
+    filename: 'client.js',
+    publicPath: '/static/'
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
