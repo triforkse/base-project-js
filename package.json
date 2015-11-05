@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "build": "webpack ./src/app.js build/app.js --config=./webpack.backend.js",
+    "build:server": "webpack --config=./webpack.backend.js",
+    "build:client": "webpack --config=./webpack.frontend.js",
+    "build": "npm run build:server && npm run build:client",
     "test": "mocha --compilers js:babel-core/register -c --require ./test/setup.js --recursive",
     "test:watch": "npm test -- --watch --growl",
     "start:production": "node build/app.js",
