@@ -15,5 +15,5 @@ function debug() {
 export default {
   info,
   error,
-  debug
+  debug,
 };

@@ -1,4 +1,4 @@
-import * as Logic from "../src/logic.js";
+import * as Logic from "../../src/server/logic.js";
 
 describe("Logic", () => {
   describe("#calculateStuff", () => {

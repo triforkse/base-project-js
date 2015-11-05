@@ -1,5 +1,7 @@
 /Dockerfile
 /docker-compose.yml
+/node_modules/
+/.git/
 /README.md
 /LICENSE.md
 /.gitignore
