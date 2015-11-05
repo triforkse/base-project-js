@@ -1,0 +1,14 @@
+{
+  "name": "project-base-js",
+  "version": "0.1.0",
+  "description": "Project Base for JS",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Thomas Anagrius <thb@trifork.com>",
+  "license": "ISC"
+}
