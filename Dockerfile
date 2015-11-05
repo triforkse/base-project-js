@@ -1,11 +1,15 @@
 FROM node:5.0
 
 ADD . /app
+
+WORKDIR /app
+
+RUN npm install
+RUN npm run build
+
 VOLUME /data /tmp/app-data
 
 EXPOSE 3000
-
-WORKDIR /app
 
 ENV NODE_ENV=production
 
