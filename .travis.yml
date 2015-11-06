@@ -14,6 +14,5 @@ script:
   - npm run test:unit
   - npm run lint
   - docker-compose build
-  - docker-compose up -d
   - docker ps -a
-  - npm run test:integration
+  - docker-compose run test
