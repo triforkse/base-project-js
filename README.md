@@ -13,6 +13,7 @@ This is a base project that can be used to bootstrap new applications.
 ☐ Analytics
 ☐ HTTP Server
 ☐ WebSockets
+☑ Auth
 
 # Tests
 

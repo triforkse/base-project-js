@@ -1,7 +1,7 @@
 all: run
 
 setup:
-	cp config/hooks/* .git/hooks/
+	ln -s config/hooks/* .git/hooks/
 	npm install
 
 run:
