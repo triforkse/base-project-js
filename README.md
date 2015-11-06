@@ -6,14 +6,18 @@ This is a base project that can be used to bootstrap new applications.
 
 # Features
 
-☑ Dockerfile
-☑ Unit Tests
-☑ Integration Tests
-☐ Monitoring
-☐ Analytics
-☐ HTTP Server
-☐ WebSockets
-☑ Auth
+☑ Dockerfile  
+☑ Unit Tests  
+☑ Integration Tests  
+☑ End to end Tests
+☐ Monitoring  
+☐ Analytics  
+☐ HTTP Server  
+☐ WebSockets  
+☑ Auth  
+☐ Health checks  
+☐ Rendering  
+☐ Coverage  
 
 # Tests
 
