@@ -3,8 +3,8 @@ app:
   ports:
     - "3000:3000"
 test:
-  build: .
-  command: npm run test:integration
+  image: baseprojectjs_app
+  command: npm run test
   environment:
     - SERVER_URL=http://app:3000/
   links:
