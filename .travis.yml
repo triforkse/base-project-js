@@ -7,12 +7,9 @@ node_js:
 services:
   - docker
 
-install:
-  - npm install
+install: true
 
 script:
-  - npm run test:unit
-  - npm run lint
   - docker-compose build
   - docker ps -a
   - docker-compose run test
