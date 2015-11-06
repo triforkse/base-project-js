@@ -1,5 +1,6 @@
 import Server from '../../src/server/server.js';
-import Resilient from 'resilient';
+import request from 'request';
+
 
 describe('Authentication', function() {
   const port = 5678;
@@ -15,9 +16,14 @@ describe('Authentication', function() {
     server.stop(done);
   });
 
-  it("should start the server", () => {
-    fetch(`http://localhost:${port}/protected`, (err, res) => {
-      console.log(err, res);
-    })
+  it("should start the server", (done) => {
+    setTimeout(function() {
+      request(`http://localhost:${port}/`, function (err, res) {
+        console.log(err);
+        expect(res.statusCode).to.equal(200);
+        done();
+      })
+
+    }, 1000)
   });
 });

@@ -6,10 +6,10 @@ import authMiddleware from './auth';
 export default {
   create(port) {
     return {
-      app: null,
+      server: null,
 
       run(done) {
-        const app = this.app = express();
+        const app = express();
 
         app.use('/static', express.static(path.join(__dirname, 'public')));
 
@@ -21,12 +21,14 @@ export default {
           res.send('Logged in!');
         });
 
-        app.listen(port, done);
+        this.server = app.listen(port, done);
+
+        return this;
       },
 
       stop(done) {
-        this.app && this.app.close(done);
-        this.app = null;
+        this.server && this.server.close(done);
+        this.server = null;
       }
     }
   }
