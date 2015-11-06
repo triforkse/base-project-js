@@ -10,7 +10,7 @@ const innerText = (selector) => document.querySelector(selector).innerHTML.trim(
 describe('Start Page', function() {
   this.timeout(15000);
 
-  const base = 'http://localhost:3000/';
+  const base = process.env.SERVER_URL || 'http://127.0.0.0:3000/';
 
   let nightmare;
 

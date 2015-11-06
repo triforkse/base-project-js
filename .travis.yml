@@ -13,7 +13,7 @@ install:
 script:
   - npm run test:unit
   - npm run lint
-  - docker build -t app/app .
-  - docker run -d -p 127.0.0.1:3000:3000 app/app
+  - docker-compose build
+  - docker-compose up -d
   - docker ps -a
   - npm run test:integration

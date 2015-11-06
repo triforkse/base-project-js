@@ -2,3 +2,10 @@ app:
   build: .
   ports:
     - "3000:3000"
+test:
+  build: .
+  command: npm run test:integration
+  environment:
+    - SERVER_URL=http://app:3000/
+  links:
+    - app
