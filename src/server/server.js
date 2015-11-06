@@ -8,6 +8,10 @@ export default {
     return {
       server: null,
 
+      isRunning() {
+        return this.server !== null;
+      },
+
       run(done) {
         const app = express();
 
