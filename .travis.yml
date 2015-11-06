@@ -9,10 +9,11 @@ services:
 
 install:
   - npm install
-  - docker-compose build
 
 script:
   - npm run test:unit
   - npm run lint
-  - docker-compose up -d
+  - docker build -t app/app .
+  - docker run -d -p 127.0.0.1:3000:3000 app/app
+  - docker ps -a
   - npm run test:integration
