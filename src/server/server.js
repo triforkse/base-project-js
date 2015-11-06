@@ -1,12 +1,15 @@
+import http from 'http';
 import express from 'express';
 import logger from './logger';
 import path from 'path';
 import authMiddleware from './auth';
+import socketIO from 'socket.io';
 
 export default {
   create(port) {
     return {
       server: null,
+	  io: null,
 
       isRunning() {
         return this.server !== null;
@@ -14,6 +17,7 @@ export default {
 
       run(done) {
         const app = express();
+        this.io = socketIO(http.Server(app));
 
         app.use('/static', express.static(path.join(__dirname, 'public')));
 
@@ -28,6 +32,15 @@ export default {
         this.server = app.listen(port, done);
 
         return this;
+      },
+
+      startSocket(handlers) {
+        this.io.on('connection', function (socket) {
+          socket.emit('news', { hello: 'world' });
+          socket.on('my other event', function (data) {
+              console.log(data);
+            });
+        });
       },
 
       stop(done) {
