@@ -5,7 +5,7 @@ var path = require("path");
 
 module.exports = {
   entry: "./src/client/app.jsx",
-  
+
   module: {
     loaders: [
       {
@@ -13,6 +13,10 @@ module.exports = {
         loaders: ["babel"],
         exclude: /node_modules/,
         include: path.join(__dirname,  "src/client")
+      },
+      {
+        test: /\.(scss|css)$/,
+        loader: 'style!css!postcss'
       }
     ]
   },
@@ -23,5 +27,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
-  }
+  },
+  postcss: [
+    require('precss'),
+    require('autoprefixer'),
+    require('csswring')
+  ]
 }
