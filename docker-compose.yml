@@ -1,11 +1,11 @@
-app:
-  build: .
+api:
+  build: ./api
   ports:
     - "3000:3000"
-test:
-  image: baseprojectjs_app
-  command: npm run test:unit && npm run lint && npm run test:integration 
-  environment:
-    - SERVER_URL=http://app:3000/
+
+client:
+  build: ./client
+  ports:
+    - "8080:8080"
   links:
-    - app
+    - api

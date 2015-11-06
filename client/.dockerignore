@@ -1,0 +1,9 @@
+/Dockerfile
+/node_modules
+/.gitignore
+/.dockerignore
+/test
+/npm-debug.log
+/build
+/devServer.js
+/webpack.*

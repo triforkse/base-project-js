@@ -1,0 +1,46 @@
+@import "fonts/latolatinfonts";
+
+$default-font-size: 16px;
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: LatoLatinWeb, Helvetica, sans-serif;
+  background-color: #E1E1FF;
+  font-size: $default-font-size;
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+h1 {
+  font-size: 36px;
+  font-family: LatoLatinWebThin, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.box {
+  padding: 50px;
+  background-color: #FFFFFF;
+  border: solid 1px #0000AA;
+}
+
+.box__center {
+  text-align: center;
+  padding-top: 30px;
+}
