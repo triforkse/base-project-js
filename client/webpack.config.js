@@ -1,16 +1,18 @@
-'use strict'
-
 var webpack = require('webpack');
 var path = require("path");
 
-module.exports = {
+var config = {
   entry: "./src/app",
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'build', 'static'),
     filename: 'app.js',
     publicPath: '/static/'
   },
-
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    }),
+  ],
   module: {
     loaders: [
       {
@@ -37,4 +39,6 @@ module.exports = {
     require('autoprefixer'),
     require('csswring')
   ]
-}
+};
+
+module.exports = config;

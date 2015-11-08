@@ -1,20 +1,12 @@
 {
-  "name": "project-base-js-client",
-  "version": "0.1.0",
-  "description": "Project Base for JS",
-  "author": "Thomas Anagrius <thb@trifork.com>",
-  "license": "LicenseRef-LICENSE.md",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "build": "webpack --config=./webpack.config.js",
+    "build": "NODE_ENV=production webpack --config=./webpack.config.js",
     "test": "mocha --compilers js:babel-core/register -c --require ./test/setup.js --recursive",
     "test:integration": "npm run test -- test/integration",
     "test:unit": "npm run test -- test/unit",
     "test:watch": "npm run test:unit -- --watch --growl",
     "start:production": "node build/bundle.js",
-    "start:dev": "node devServer.js",
+    "start:dev": "node dev-server.js",
     "start": "concurrent 'npm run start:dev' 'npm run test:watch' 'npm run lint:watch'",
     "lint:watch": "npm run lint -- -w --fix",
     "lint": "esw src",

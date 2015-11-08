@@ -1,7 +1,9 @@
 FROM python:2.7
 
+ADD /public/ /app/
+
 ADD ./build /app
-ADD ./scripts/docker-run.sh /app/run.sh
+ADD ./scripts/run.sh /app/run.sh
 
 WORKDIR /app
 

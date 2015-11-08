@@ -9,7 +9,9 @@ window.onkeydown = (e) => {
 };
 
 export function isProduction() {
-  return localStorage.getItem('__app_env') !== 'dev';
+  const storageValue = localStorage.getItem('__app_env');
+  const value = (storageValue) ? storageValue : process.env.NODE_ENV;
+  return (value === 'production');
 }
 
 export function isDevelopment() {

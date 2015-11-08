@@ -1,7 +1,15 @@
 var path = require('path');
 var express = require('express');
 var webpack = require('webpack');
-var config = require('./webpack.config.development');
+var baseConfig = require('./webpack.config');
+
+var config = Object.create(baseConfig);
+config.devtool = 'eval-source-map';
+config.entry = ['webpack-hot-middleware/client', config.entry]
+config.plugins = config.plugins.concat([
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.HotModuleReplacementPlugin()
+]);
 
 var app = express();
 var compiler = webpack(config);

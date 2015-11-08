@@ -5,7 +5,18 @@ api:
 
 client:
   build: ./client
-  ports:
-    - "8080:8080"
   links:
     - api
+  ports:
+    - "3001:8080"
+  environment:
+    # You can set this to the VirtualBox VM IP if you are running
+    # docker on Mac. This allows you to test the client and API
+    # together in Docker on Mac.
+    - API_ADDR
+
+e2e:
+  build: ./e2e
+  links:
+    - api
+    - client
