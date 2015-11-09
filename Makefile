@@ -28,9 +28,14 @@ test-e2e:
 
 test: test-unit test-integration test-e2e
 
+coverage: setup
+	cd api && npm run test:cov
+	cd client && npm run test:cov
+
 docker-e2e:
 	cd client && $(MAKE) build
 	docker-compose --project-name=app build
 	docker-compose --project-name=app run e2e
 
-.PHONY: git-hooks setup
+.PHONY: git-hooks setup coverage docker-e2e test test-e2e test-integration \
+	test-unit lint pre-commit

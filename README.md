@@ -11,13 +11,20 @@ This is a base project that can be used to bootstrap new applications.
 ☑ Integration Tests  
 ☑ End to end Tests  
 ☑ Client-Side Analytics  
-☐ Server-Side Analytics / Logging  
+☑ Logging  
 ☑ HTTP Server  
+☑ Simple SSL/HTTPS  
 ☐ WebSockets  
 ☑ Auth  
 ☑ Health checks  
 ☑ Rendering  
-☐ Coverage
+☑ Coverage
+
+# TODO
+
+☐ Enable Coverage even on JSX files.
+☐ Integrate Travis with Coveralls.io.
+☐ Write more README.
 
 ## Tests
 
@@ -40,6 +47,8 @@ $ sudo apt-get install libnotify-bin
 The API is equipped with basic security and HTTPS enabled.
 You need to provide SSL certificates yourself and put them
 in the /api/certs folder.
+
+The files should be called: `key.pem` and `cert.pem`.
 
 If you want to scale out your service it is recommended that
 you use `nginx` instead of letting NodeJS handle SSL.

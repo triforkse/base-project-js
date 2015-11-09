@@ -15,3 +15,4 @@ script:
   - make test-integration
   - make lint
   - make docker-e2e
+  - make coverage
