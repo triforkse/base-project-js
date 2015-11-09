@@ -22,7 +22,7 @@ describe('Server', function test() {
   });
 
   it('should start when #run is called', (done) => {
-    request(`http://localhost:${port}/`, (err, res) => {
+    request(`http://localhost:${port}/api/1.0/status`, (err, res) => {
       expect(res.statusCode).to.equal(200);
       done();
     });
@@ -31,7 +31,7 @@ describe('Server', function test() {
   it('should stop when #stop is called', (done) => {
     server.stop(() => {
       request(`http://localhost:${port}/`, (err) => {
-        expect(err).to.not.be(null);
+        expect(err).to.not.equal(null);
         done();
       });
     });
