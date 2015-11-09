@@ -21,9 +21,11 @@ test-integration:
 	cd api && npm run test:integration
 
 test-e2e:
+	cd client && $(MAKE) build
 	cd e2e && npm test
 
 docker-e2e:
+	cd client && $(MAKE) build
 	docker-compose --project-name=app build
 	docker-compose --project-name=app run e2e
 
