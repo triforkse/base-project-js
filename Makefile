@@ -3,6 +3,8 @@
 
 git-hooks: .git/hooks/pre-commit
 
+pre-commit: lint test-unit
+
 setup: git-hooks
 	cd api && $(MAKE) setup
 	cd client && $(MAKE) setup
