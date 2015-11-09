@@ -1,9 +1,7 @@
-import http from 'http';
 import express from 'express';
 import authMiddleware from './auth';
 import * as ws from './webSockets';
 import cors from './cors';
-import logger from 'winston';
 
 export default {
   create(port) {

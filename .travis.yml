@@ -10,8 +10,7 @@ services:
 install: true
 
 script:
-  - npm run test:unit
-  - docker-compose up app
-  - docker ps -a
-  - npm run test:integration
-  - npm run lint
+  - make test-unit
+  - make test-integration
+  - make lint
+  - make docker-e2e

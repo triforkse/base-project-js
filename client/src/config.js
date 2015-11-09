@@ -1,8 +1,8 @@
 const PRODUCTION_URL = 'REPLACEMEURL';
 const DEVELOPMENT_URL = 'localhost:3000';
 
-window.onkeydown = (e) => {
-  if (e.ctrlKey && e.keyCode === 68) {
+window.onkeydown = (event) => {
+  if (event.ctrlKey && event.keyCode === 68) {
     console.log('Setting environment to dev'); // eslint-disable-line no-console
     localStorage.setItem('__app_env', 'dev');
   }

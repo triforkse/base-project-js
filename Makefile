@@ -8,6 +8,10 @@ setup: git-hooks
 	cd client && $(MAKE) setup
 	cd e2e && $(MAKE) setup
 
+lint:
+	cd client && npm run lint
+	cd api && npm run lint
+
 test-unit:
 	cd client && npm run test:unit
 	cd api && npm run test:unit
