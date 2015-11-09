@@ -2,6 +2,7 @@ import express from 'express';
 import authMiddleware from './auth';
 import * as ws from './webSockets';
 import cors from './cors';
+import https from './https';
 
 export default {
   create(port) {
@@ -13,7 +14,7 @@ export default {
         return this.server !== null;
       },
 
-      run(done) {
+      run(done, opts = {}) {
         const app = express();
 
         // Since our API is a (BFF, backend for frontend)
@@ -29,7 +30,10 @@ export default {
           res.send('Logged in!');
         });
 
-        this.server = app.listen(port, done);
+        // Enable HTTPS if certs are availible.
+        const secure = (expressApp) => opts.certRoot ? https(expressApp, opts.certRoot) : expressApp;
+
+        this.server = secure(app).listen(port, done);
         this.io = ws.init(this.server);
 
         return this;

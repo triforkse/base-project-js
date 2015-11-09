@@ -26,6 +26,8 @@ test-e2e:
 	cd client && $(MAKE) build
 	cd e2e && npm test
 
+test: test-unit test-integration test-e2e
+
 docker-e2e:
 	cd client && $(MAKE) build
 	docker-compose --project-name=app build
