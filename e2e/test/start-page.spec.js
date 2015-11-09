@@ -5,13 +5,14 @@ require('mocha-generators').install();
 process.setMaxListeners(0);
 
 // Utils
-const innerText = (selector) => document.querySelector(selector).innerHTML.trim();
+const innerHTML = (selector) => document.querySelector(selector).innerHTML;
+const innerText = (selector) => innerHTML(selector).trim();
 
 describe('Start Page', function() {
   this.timeout(15000);
 
   const hostname = process.env.CLIENT_ADDR || 'localhost';
-  const base = "http://" + hostname + ":3000";
+  const base = "http://" + hostname + ":3001";
 
   let nightmare;
 
@@ -26,15 +27,5 @@ describe('Start Page', function() {
   it("should have a title", function * () {
     const title = yield nightmare.goto(base).title();
     expect(title).to.equal('Project Start');
-  });
-
-  it('should show a message when you click the button', function * () {
-    const message = yield nightmare
-    .goto(base)
-    .click('#click-here')
-    .wait('#message')
-    .evaluate(innerText, '#message');
-
-    expect(message).to.equal('You clicked the button!');
   });
 });

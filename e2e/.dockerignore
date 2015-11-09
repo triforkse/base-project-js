@@ -1,6 +1,6 @@
-/Dockerfile
-/node_modules
-/.gitignore
-/.dockerignore
-/npm-debug.log
-/build
+Dockerfile
+node_modules/
+.gitignore
+.dockerignore
+npm-debug.log
+build

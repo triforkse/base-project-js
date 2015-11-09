@@ -5,5 +5,7 @@ node_modules: package.json
 
 setup: node_modules
 
+run:
+	npm test
 
-.PHONY: test setup
+.PHONY: setup

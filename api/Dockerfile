@@ -4,9 +4,10 @@ ENV NODE_ENV=production
 
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install --production
-RUN mkdir /app && cp -a /tmp/node_modules /app/
 
 ADD . /app
+RUN rm -rf /app/node_modules
+RUN cp -r /tmp/node_modules /app/
 
 WORKDIR /app
 

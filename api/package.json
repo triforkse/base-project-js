@@ -13,7 +13,6 @@
     "pre-commit": "npm run lint && npm run test"
   },
   "devDependencies": {
-    "babel": "^5.8.21",
     "babel-core": "^5.8.22",
     "babel-eslint": "^3.1.15",
     "chai": "^3.4.0",
@@ -29,6 +28,7 @@
     "sinon": "^1.17.2"
   },
   "dependencies": {
+    "babel": "^5.8.21",
     "express": "^4.13.3",
     "passport": "^0.3.0",
     "passport-http": "^0.3.0",

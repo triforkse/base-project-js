@@ -15,6 +15,6 @@ mv ./static/app2.js ./static/app.js
 
 echo "API Address: $API_ADDR"
 
-echo "Starting Web Client on port 3004"
+echo "Starting Web Client on port 3001"
 
-python -m SimpleHTTPServer 8080
+python -m SimpleHTTPServer 3001

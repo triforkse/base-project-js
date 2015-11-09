@@ -7,6 +7,6 @@ ADD ./scripts/run.sh /app/run.sh
 
 WORKDIR /app
 
-EXPOSE 8080
+EXPOSE 3001
 
 CMD ["./run.sh"]

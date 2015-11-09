@@ -8,7 +8,7 @@ client:
   links:
     - api
   ports:
-    - "3001:8080"
+    - "3001:3001"
   environment:
     # You can set this to the VirtualBox VM IP if you are running
     # docker on Mac. This allows you to test the client and API
@@ -18,5 +18,4 @@ client:
 e2e:
   build: ./e2e
   links:
-    - api
     - client
