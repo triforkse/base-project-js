@@ -10,6 +10,7 @@ services:
 install: true
 
 script:
+  - make setup
   - make test-unit
   - make test-integration
   - make lint
