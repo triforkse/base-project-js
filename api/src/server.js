@@ -1,7 +1,7 @@
 import http from 'http';
 import express from 'express';
 import authMiddleware from './auth';
-import socketIO from 'socket.io';
+import * as ws from './webSockets';
 import cors from './cors';
 import logger from 'winston';
 
@@ -17,7 +17,6 @@ export default {
 
       run(done) {
         const app = express();
-        this.io = socketIO(new http.Server(app));
 
         // Since our API is a (BFF, backend for frontend)
         // running on another URL we need to allow CORS.
@@ -33,22 +32,15 @@ export default {
         });
 
         this.server = app.listen(port, done);
+        this.io = ws.init(this.server);
 
         return this;
-      },
-
-      startSocket() {
-        this.io.on('connection', (socket) => {
-          socket.emit('news', { hello: 'world' });
-          socket.on('my other event', (data) => {
-            logger.log(data);
-          });
-        });
       },
 
       stop(done) {
         if (this.server) this.server.close(done);
         this.server = null;
+        this.io = null;
       },
     };
   },

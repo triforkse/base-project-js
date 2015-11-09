@@ -1,5 +1,8 @@
 import * as config from './config.js';
 import http from 'lil-http';
+import io from 'socket.io-client';
+
+let socket = null;
 
 export function fetchStatus(success) {
   const base = config.apiAddress();
@@ -11,4 +14,11 @@ export function fetchStatus(success) {
 
     success(res.data);
   });
+}
+
+export function connectWebSocket(cb) {
+  const base = config.apiAddress();
+  socket = io(`http://${base}`);
+  socket.on('greeting', cb);
+  socket.emit('greeting', 'hi from client');
 }

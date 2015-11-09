@@ -9,20 +9,22 @@ export default class MyComponent extends React.Component {
 
   constructor() {
     super();
-    this.state = {status: null};
+    this.state = {apiStatus: null, socketStatus: null};
 
     setTimeout(() => {
-      api.fetchStatus(status => this.setState({status}));
+      api.fetchStatus(apiStatus => this.setState({apiStatus}));
+      api.connectWebSocket(socketStatus => this.setState({socketStatus}));
     }, 1000);
   }
 
   render() {
-    const {status} = this.state;
+    const {apiStatus, socketStatus} = this.state;
     return (
       <div className="page">
         <div className="box">
           <h1>Welcome to your new project!</h1>
-          <div className="box__center">{status ? ('API Status: ' + status) : <ActivityIndicator />}</div>
+          <div className="box__center">{apiStatus ? ('API Status: ' + apiStatus) : <ActivityIndicator />}</div>
+          <div className="box__center">{socketStatus ? ('Web socket Status: ' + socketStatus) : <ActivityIndicator />}</div>
         </div>
       </div>);
   }
