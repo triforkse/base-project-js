@@ -1,17 +1,19 @@
-FROM node:5.0
+FROM mhart/alpine-node:5.1
+
+RUN apk add --update make gcc g++ python
 
 ENV NODE_ENV=production
 
-ADD package.json /tmp/package.json
-RUN cd /tmp && npm install --production --quiet
+ADD package.json /app/package.json
+RUN cd /app && npm install --production --quiet
 
 ADD . /app
-RUN rm -rf /app/node_modules
-RUN cp -r /tmp/node_modules /app/
+COPY ./build/ /app
 
 WORKDIR /app
 
-RUN npm run build
+RUN apk del make gcc g++ python && \
+  rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
 
 VOLUME /data /tmp/app-data
 

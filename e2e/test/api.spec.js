@@ -9,7 +9,7 @@ process.setMaxListeners(0);
 const innerHTML = (selector) => document.querySelector(selector).innerHTML;
 const innerText = (selector) => innerHTML(selector).trim();
 
-describe('API endpoint', function () {
+describe('API endpoint', function() {
   this.timeout(15000);
 
   const hostname = process.env.API_ADDR || 'localhost';
@@ -25,7 +25,7 @@ describe('API endpoint', function () {
     yield nightmare.end();
   });
 
-  it("is reachable and returns OK", function * () {
+  it('is reachable and returns OK', function * () {
     const title = yield nightmare.goto(base + '/api/1.0/status').evaluate(() => document.body.innerText);
     expect(title).to.equal('OK');
   });
