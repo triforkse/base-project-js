@@ -7,6 +7,7 @@ setup: node_modules
 
 build:
 	npm run build
+	cp -R public/* build/
 
 run:
 	npm run start
@@ -18,9 +19,7 @@ clean:
 	-rm -rf node_modules
 	-rm -rf build
 
-serve:
-	$(MAKE) build
-	cp -R public/ build/
+serve: build
 	npm run start:production
 
-.PHONY: clean test run build setup
+.PHONY: clean test run build setup serve
