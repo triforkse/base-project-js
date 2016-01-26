@@ -18,4 +18,9 @@ clean:
 	-rm -rf node_modules
 	-rm -rf build
 
+serve:
+	$(MAKE) build
+	cp -R public/ build/
+	npm run start:production
+
 .PHONY: clean test run build setup
