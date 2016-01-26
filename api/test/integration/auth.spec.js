@@ -1,5 +1,3 @@
-/* global it expect describe beforeEach afterEach */
-
 import Server from '../../src/server.js';
 import request from 'request';
 

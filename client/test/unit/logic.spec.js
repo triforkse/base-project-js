@@ -1,5 +1,3 @@
-/* global it expect describe */
-
 import * as Logic from '../../src/logic.js';
 
 describe('Logic', () => {

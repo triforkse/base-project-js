@@ -1,0 +1,10 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "new-cap": 0
+  },
+  "env": {
+      "browser": true
+  }
+}

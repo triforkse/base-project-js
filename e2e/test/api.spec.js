@@ -1,13 +1,8 @@
-/* globals describe beforeEach afterEach it expect */
 import Nightmare from 'nightmare';
 require('mocha-generators').install();
 
 // Get rid of a warning.
 process.setMaxListeners(0);
-
-// Utils
-const innerHTML = (selector) => document.querySelector(selector).innerHTML;
-const innerText = (selector) => innerHTML(selector).trim();
 
 describe('API endpoint', function() {
   this.timeout(15000);
