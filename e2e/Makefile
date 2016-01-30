@@ -8,4 +8,4 @@ setup: node_modules
 run:
 	npm test
 
-.PHONY: setup
+.PHONY: setup run
