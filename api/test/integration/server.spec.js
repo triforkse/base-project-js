@@ -1,5 +1,3 @@
-/* global it expect describe beforeEach afterEach */
-
 import Server from '../../src/server.js';
 import request from 'request';
 
@@ -11,8 +9,7 @@ const secureStatusURL = `https://localhost:${port}/api/1.0/status`;
 describe('Server', function test() {
   let server;
 
-  describe("No SSL", () => {
-
+  describe('No SSL', () => {
     beforeEach((done) => {
       // We wait with running the tests until
       // the server has started (which calls the done() function).
@@ -42,24 +39,21 @@ describe('Server', function test() {
         });
       });
     });
-
   });
 
-  describe("With SSL", () => {
-    let server;
-
+  describe('With SSL', () => {
     beforeEach((done) => {
       // We wait with running the tests until
       // the server has started (which calls the done() function).
-      const certRoot = __dirname + "/data";
+      const certRoot = __dirname + '/data';
       server = Server.create(port).run(done, {certRoot});
 
       // Allow Self Signed Certs.
-      process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
     });
 
     afterEach((done) => {
-      process.env.NODE_TLS_REJECT_UNAUTHORIZED = "1";
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = '1';
 
       if (server.isRunning()) {
         server.stop(done);
@@ -68,14 +62,14 @@ describe('Server', function test() {
       }
     });
 
-    it("rejects all non-HTTPS requests", (done) => {
-      request(statusURL, (err, res) => {
+    it('rejects all non-HTTPS requests', (done) => {
+      request(statusURL, (err) => {
         expect(err).not.to.equal(null);
         done();
       });
     });
 
-    it("uses the supplied certificate for HTTPS", (done) => {
+    it('uses the supplied certificate for HTTPS', (done) => {
       request(secureStatusURL, (err, res) => {
         expect(res.statusCode).to.equal(200);
         done();
