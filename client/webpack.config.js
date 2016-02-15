@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require("path");
+var UnusedFilesWebpackPlugin = require("unused-files-webpack-plugin").default;
 
 var config = {
   entry: "./src/app",
@@ -11,6 +12,9 @@ var config = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    }),
+    new UnusedFilesWebpackPlugin({
+      pattern: 'src/**/*.*'
     }),
   ],
   module: {
