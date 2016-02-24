@@ -31,7 +31,8 @@ export default {
         });
 
         // Enable HTTPS if certs are availible.
-        const secure = (expressApp) => opts.certRoot ? https(expressApp, opts.certRoot) : expressApp;
+        const secure = (expressApp) =>
+          opts.certRoot ? https(expressApp, opts.certRoot) : expressApp;
 
         this.server = secure(app).listen(port, done);
         this.io = ws.init(this.server);

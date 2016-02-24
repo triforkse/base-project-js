@@ -10,7 +10,7 @@ window.onkeydown = (event) => {
 
 export function isProduction() {
   const storageValue = localStorage.getItem('__app_env');
-  const value = (storageValue) ? storageValue : process.env.NODE_ENV;
+  const value = storageValue || process.env.NODE_ENV;
   return (value === 'production');
 }
 
@@ -23,5 +23,5 @@ export function apiAddress() {
 }
 
 export function url(path) {
-  return apiAddress() + '/' + path;
+  return `${apiAddress()}/${path}`;
 }
