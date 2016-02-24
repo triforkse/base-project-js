@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require("path");
 var UnusedFilesWebpackPlugin = require("unused-files-webpack-plugin").default;
+var vars = require('postcss-simple-vars')
 
 var config = {
   entry: "./src/app",
@@ -39,6 +40,13 @@ var config = {
     extensions: ['', '.js', '.jsx']
   },
   postcss: [
+    vars({
+      variables() {
+        const file = './src/css-variables.js';
+        delete require.cache[path.join(__dirname, file)];
+        return require(file);
+      }
+    }),
     require('precss'),
     require('autoprefixer'),
     require('csswring')

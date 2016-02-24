@@ -83,6 +83,7 @@
   },
   "devDependencies": {
     "glob": "^5.0.15",
-    "istanbul": "^0.4.0"
+    "istanbul": "^0.4.0",
+    "postcss-simple-vars": "^1.2.0"
   }
 }

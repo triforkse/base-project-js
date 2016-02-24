@@ -1,14 +1,12 @@
 @import "fonts/latolatinfonts";
 
-$default-font-size: 16px;
-
 html {
   height: 100%;
 }
 
 body {
   font-family: LatoLatinWeb, Helvetica, sans-serif;
-  background-color: #E1E1FF;
+  background-color: $background-color;
   font-size: $default-font-size;
   height: 100%;
 }
