@@ -39,6 +39,13 @@ docker-e2e:
 	docker-compose --project-name=app run e2e
 	docker-compose --project-name=app kill
 
+docker-e2e-bust:
+	cd client && $(MAKE) build
+	cd api && $(MAKE) build
+	docker-compose --project-name=app build --no-cache
+	docker-compose --project-name=app run e2e
+	docker-compose --project-name=app kill
+
 run:
 	$(MAKE) -j4 start-api start-client
 
