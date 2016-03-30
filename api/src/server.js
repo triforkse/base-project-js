@@ -41,9 +41,7 @@ export default {
       },
 
       stop(done) {
-        if (this.server) {
-          this.server.close(done);
-        }
+        if (this.server) this.server.close(done);
         this.server = null;
         this.io = null;
       },

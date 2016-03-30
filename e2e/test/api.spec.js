@@ -1,6 +1,5 @@
 /* globals describe beforeEach afterEach it expect */
 import Nightmare from 'nightmare';
-import 'babel-polyfill';
 import fetch from 'node-fetch';
 require('mocha-generators').install();
 
