@@ -23,12 +23,8 @@ export default class MyComponent extends React.Component {
       <div className="page">
         <div className="box">
           <h1>Welcome to your new project!</h1>
-          <div className="box__center">
-            {apiStatus ? (`API Status: ${apiStatus}`) : <ActivityIndicator />}
-          </div>
-          <div className="box__center">
-            {socketStatus ? (`Web socket Status: ${socketStatus}`) : <ActivityIndicator />}
-          </div>
+          <div className="box__center">{apiStatus ? (`API Status: ${apiStatus}`) : <ActivityIndicator />}</div>
+          <div className="box__center">{socketStatus ? (`Web socket Status: ${socketStatus}`) : <ActivityIndicator />}</div>
         </div>
       </div>);
   }
